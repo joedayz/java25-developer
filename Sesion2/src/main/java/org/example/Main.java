@@ -4,14 +4,47 @@ package org.example;
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 public class Main {
     public static void main(String[] args) {
-        //TIP Press <shortcut actionId="ShowIntentionActions"/> with your caret at the highlighted text
-        // to see how IntelliJ IDEA suggests fixing it.
-        System.out.printf("Hello and welcome!");
+        int i = 2_147_483_647;
+        double salary = 1_000_000.00;
 
-        for (int i = 1; i <= 5; i++) {
-            //TIP Press <shortcut actionId="Debug"/> to start debugging your code. We have set one <icon src="AllIcons.Debugger.Db_set_breakpoint"/> breakpoint
-            // for you, but you can always add more by pressing <shortcut actionId="ToggleLineBreakpoint"/>.
-            System.out.println("i = " + i);
-        }
+        float pi = 3.14F;  // no hay problema si es f o F
+
+
+       // float f = 0.1;  NO COMPILA POR DESBORDAMIENTO
+
+        double d = 12341234.231f;   // no hay problema si es float
+
+
+        int j = 2_147_483_647;
+
+        long k = 5_147_483_648L; //l  o L
+
+        short sh = 32_767;
+
+        byte b = 127;
+
+        char ch = '\101'; // ASCII
+        char ch2 = '\u0041'; // Unicode
+        char ch3 = 'Z';
+        char ch4 = 65_535; // ASCII
+        System.out.println("ch = " + ch);
+        System.out.println("ch2 = " + ch2);
+        System.out.println("ch3 = " + ch3);
+        System.out.println("ch4 = " + ch4);
+
+        //Type casting
+        byte b1 = 127;
+        byte b2 = (byte) (b1 + 1); // overflow
+
+        System.out.println("b2 = " + b2); // -128
+
+        short sh2 = (short) (sh + 1);
+        System.out.println(sh2 );
+
+        char mychar = 65535;
+        System.out.println("mychar = " + mychar);
+        char mychar2 = (char) (mychar + 1);
+        System.out.println("mychar2 = " + mychar2);
+
     }
 }
