@@ -37,5 +37,17 @@ public class TypeCasting {
         float resultado = bInt + f1 + x;  //  int  + float + byte
         System.out.println("resultado " + resultado);
 
+
+        short sh = 15;
+
+        sh = (short) (sh + 65);
+
+        sh = (short) (b + sh + bInt);
+        System.out.println("sh " + sh);
+
+        byte otroByte = 127;
+
+        otroByte = (byte) (otroByte + 15);
+        System.out.println("otroByte " + otroByte);
     }
 }
