@@ -20,5 +20,7 @@ public class StringEjercicio {
         boolean f = d.contains("W");
         System.out.println("f = " + f);
 
+
+
     }
 }
