@@ -42,5 +42,38 @@ public class JavaTimeSamples {
         System.out.println("Other DateTime: " + otherDateTime);
         System.out.println("Some DateTime: " + someDateTime);
         System.out.println("What Was The Date: " + whatWasTheDate);
+
+
+
+
+
+
+        // Fecha y hora actual
+        LocalDateTime current = LocalDateTime.now(); // la hora es la hora del sistema, no la hora de tu zona horaria
+
+        // Crear una nueva fecha/hora modificando la actual
+        LocalDateTime different = current // esta es una fecha distinta a la actual, pero no es una copia de la actual, es una nueva fecha/hora
+                .withMinute(14)
+                .withDayOfMonth(3)
+                .plusHours(12);
+
+        // Obtener el año
+        int year = current.getYear();
+
+        // Comparar dos fechas
+        boolean before = current.isBefore(different);
+
+        // Imprimir resultados
+        System.out.println("Current:   " + current);
+        System.out.println("Different: " + different);
+        System.out.println("Year:      " + year);
+        System.out.println("Is Before: " + before);
+
+
+
+
+
+
+
     }
 }
