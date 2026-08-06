@@ -1,7 +1,7 @@
-package gob.sunat.main;
+package com.acme.main;
 
 
-import gob.sunat.Product;
+import com.acme.Product;
 
 public class Main {
     public static void main(String[] args) {
