@@ -12,6 +12,8 @@ public class Main {
         product.setPrice(new java.math.BigDecimal("19.99"));
         System.out.println("Product price: " + product.getPrice());
 
+        Product.setDefaultExpiryPeriod(5);
+
         product = null;
 
 

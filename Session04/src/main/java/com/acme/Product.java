@@ -2,18 +2,28 @@ package com.acme;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
+import java.time.Period;
 
 public class Product {
 
+    public static final int MAX_EXPIRY_PERIOD = 5;
+
     private static int contador;
+
+    private static Period defaultExpiryPeriod = Period.ofDays(Product.MAX_EXPIRY_PERIOD);
 
     //variables de instancia
     private int id;  // 0
     private String name = "Tea";  // null
     private BigDecimal price;  // null
-    private LocalDate bestBefore = LocalDate.now().plusDays(3);
+    private LocalDate bestBefore = LocalDate.now().plus(defaultExpiryPeriod);
 
-
+    public static void setDefaultExpiryPeriod(int days) {
+        Product.defaultExpiryPeriod = Period.ofDays(days);
+        //MAX_EXPIRY_PERIOD = 7;
+        //System.out.println(name);
+        //ERROR: System.out.println(Product.name);
+    }
 
 
     //constructores
