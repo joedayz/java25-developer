@@ -2,8 +2,8 @@ package com.acme;
 
 public class Pato {
 
-    String nombre;
-    int edad;
+    private String nombre;
+    private int edad;
 
 
     public Pato(){
@@ -26,5 +26,21 @@ public class Pato {
     static void main() {
         Pato pato = new Pato(1, "Pato");
 
+    }
+
+    public String getNombre() {
+        return nombre;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
+    public int getEdad() {
+        return edad;
+    }
+
+    public void setEdad(int edad) {
+        this.edad = edad;
     }
 }
