@@ -1,7 +1,8 @@
 package com.acme.main;
 
-
 import com.acme.Product;
+
+import static java.lang.Math.*;
 
 public class Main {
     public static void main(String[] args) {
@@ -16,8 +17,16 @@ public class Main {
 
         product = null;
 
+        //Math m = new Math();
 
         // java.lang.OutOfMemoryError
+        random();
+
+        max(2, 5);
+
+        abs(5.5);
+
+        Product.setDefaultExpiryPeriod(7);
 
     }
 }
