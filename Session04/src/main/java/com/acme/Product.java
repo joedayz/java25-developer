@@ -12,10 +12,13 @@ public class Product {
 
     private static Period defaultExpiryPeriod = Period.ofDays(Product.MAX_EXPIRY_PERIOD);
 
+
     //variables de instancia
     private int id;  // 0
     private String name = "Tea";  // null
     private BigDecimal price;  // null
+    private BigDecimal discount = BigDecimal.ZERO;
+    private BigDecimal tax = BigDecimal.ZERO;
     private LocalDate bestBefore = LocalDate.now().plus(defaultExpiryPeriod);
 
     public static void setDefaultExpiryPeriod(int days) {
@@ -34,6 +37,17 @@ public class Product {
 
     //Dummy d = new Dummy();  NO SE PUEDE USAR CLASES SIN PAQUETE EN OTRAS CLASES.
 
+    public void setFiscalDetails(double... values) {
+        switch (values.length) {
+            case 3:
+                this.tax = BigDecimal.valueOf(values[2]);
+            case 2:
+                this.discount = BigDecimal.valueOf(values[1]);
+            case 1:
+                this.price = BigDecimal.valueOf(values[0]);
+        }
+    }
+
     //methods
     public  BigDecimal getPrice() {
         return price;
@@ -41,6 +55,20 @@ public class Product {
 
     public void setPrice(BigDecimal price) {
         this.price = price;
+    }
+
+    public void setPrice(BigDecimal price, BigDecimal discount){
+        this.price = price;
+        this.discount = discount;
+    }
+
+    public void setPrice(double discount, double price){
+        this.price = BigDecimal.valueOf(price);
+        this.discount = BigDecimal.valueOf(discount);
+    }
+
+    public void setPrice(double price){
+        this.price = BigDecimal.valueOf(price);
     }
 
     public int getId() {
