@@ -1,8 +1,9 @@
 package com.acme.enumeration;
 
 import java.math.BigDecimal;
+import java.util.Objects;
 
-public class Product {
+public class Product extends Object {
 
     private String name;
     private BigDecimal price;
@@ -60,5 +61,31 @@ public class Product {
     static void main() {
         Product p1 = new Product();
         p1.manageProduct();
+
+        System.gc(); // sugerencia de cleanup de memoria
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if (o == null || getClass() != o.getClass()) return false;
+        Product product = (Product) o;
+        return Objects.equals(name, product.name) && Objects.equals(price, product.price) && Objects.equals(caution, product.caution) && condition == product.condition;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(name, price, caution, condition);
+    }
+
+    @Override
+    public String toString() {
+        return "Product{" +
+                "name='" + name + '\'' +
+                ", price=" + price +
+                ", caution='" + caution + '\'' +
+                ", condition=" + condition +
+                '}';
+    }
+
+
 }
