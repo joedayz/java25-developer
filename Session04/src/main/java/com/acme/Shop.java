@@ -1,33 +1,40 @@
 package com.acme;
 
-public class Shop {
+public class Shop  extends Object {
 
+
+    private static final String  NAME = "My Shop";
+
+
+    static{
+        System.out.println("Cargando Shop");
+    }
+
+    {
+        System.out.println("Bloque de inicialización de instancia de Shop");
+    }
+
+
+    public Shop() {
+        super();
+        System.out.println("Constructor de Shop");
+    }
 
     static void main() {
-        new Product(); // creando un objeto
-
-        Product p1 =  new Product();
-        Product p2 =  new Product();
-        Product p3 =  new Product();
 
 
 
+        //teoria de instancia
+        // primero ejecuta los bloques de inicializacion
+        // segundo ejecuta los constructores
 
-        p1.setName("Tea");
-        p2.setName("Cake");
-        System.out.println("p1 name: " + p1.getName());
-        System.out.println("p2 name: " + p2.getName());
-        System.out.println("p3 name: " + p3.getName());
 
-        p1.setName("Coffee");
-
-        System.out.println("p1 name: " + p1.getName());
-
-        System.out.println("Total de productos es " + Product.getContador());
-
-        System.out.println("Total de productos v2 es " +  p3.getContador());
-
-        System.out.println("Total de productos v2 es " +  p1.getContador());
 
     }
+
+    // 1. Las clases que se inicializan son
+    // Object
+    // Shop
+    // Product
+    // Food
 }

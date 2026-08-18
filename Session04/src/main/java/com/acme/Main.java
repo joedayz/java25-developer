@@ -68,5 +68,10 @@ public class Main {
         Drink x6 =  (Drink )x2;
         //Drink x7 = (Drink) x3;
 
+        Product a = new Product();
+        a.order(new Food());
+
+        a.order(new Drink());
+
     }
 }

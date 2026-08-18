@@ -2,6 +2,7 @@ package com.acme;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
+import java.time.LocalTime;
 import java.time.Period;
 
 public class Product {
@@ -9,8 +10,6 @@ public class Product {
     public static final int MAX_EXPIRY_PERIOD = 5;
 
     private static int contador;
-
-
 
 
     //variables de instancia
@@ -21,6 +20,15 @@ public class Product {
     private BigDecimal tax = BigDecimal.ZERO;
 
 
+    static {
+        System.out.println("§§§§ Cargando Product §§§");
+    }
+
+    {
+
+        System.out.println("Bloque de inicialización de instancia de Product");
+    }
+
     public static void setDefaultExpiryPeriod(int days) {
         //Product.defaultExpiryPeriod = Period.ofDays(days);
         //MAX_EXPIRY_PERIOD = 7;
@@ -30,10 +38,15 @@ public class Product {
 
 
     //constructores
-    public Product(){
+    public Product() {
         contador++;  // quiero guardar el numero de productos que generamos
+        System.out.println("Constructor de Product");
     }
 
+
+    public Product(String name) {
+        this.name = name;
+    }
 
     //Dummy d = new Dummy();  NO SE PUEDE USAR CLASES SIN PAQUETE EN OTRAS CLASES.
 
@@ -49,7 +62,7 @@ public class Product {
     }
 
     //methods
-    public  BigDecimal getPrice() {
+    public BigDecimal getPrice() {
         return price;
     }
 
@@ -57,17 +70,17 @@ public class Product {
         this.price = price;
     }
 
-    public void setPrice(BigDecimal price, BigDecimal discount){
+    public void setPrice(BigDecimal price, BigDecimal discount) {
         this.price = price;
         this.discount = discount;
     }
 
-    public void setPrice(double discount, double price){
+    public void setPrice(double discount, double price) {
         this.price = BigDecimal.valueOf(price);
         this.discount = BigDecimal.valueOf(discount);
     }
 
-    public void setPrice(double price){
+    public void setPrice(double price) {
         this.price = BigDecimal.valueOf(price);
     }
 
@@ -83,7 +96,7 @@ public class Product {
 
         var foo = "abc";
 
-        if(name==null){
+        if (name == null) {
             var dummy = "Desconocido";  // variable local
             return dummy;
         }
@@ -93,7 +106,7 @@ public class Product {
         return name;
     }
 
-    public String consume(){
+    public String consume() {
         var feedback = "Good!";  //variable local
 
         //
@@ -106,10 +119,56 @@ public class Product {
     }
 
 
-    public void play() {}
+    public void play() {
+    }
 
 
     public static int getContador() {
         return contador;
+    }
+
+    public void order(Product p) {
+        BigDecimal price = p.getPrice();
+        BigDecimal discount = BigDecimal.ZERO;
+
+        if (p instanceof Food) {
+            discount =
+                    (((Food) p).getBestBefore().isEqual(LocalDate.now().plusDays(1)))
+                            ? price.multiply(BigDecimal.valueOf(0.1))
+                            : BigDecimal.ZERO;
+
+        }
+        if (p instanceof Drink) {
+            LocalTime now = LocalTime.now();
+            discount = (now.isAfter(LocalTime.of(17, 30)) && now.isBefore(LocalTime.of(18, 30)))
+                    ? price.multiply(BigDecimal.valueOf(0.2))
+                    : BigDecimal.ZERO;
+
+        }
+        price = price.subtract(discount);
+
+    }
+
+    public void order2(Product p) {
+        BigDecimal price = p.getPrice();
+        BigDecimal discount = BigDecimal.ZERO;
+
+        if (p instanceof Food f && f.getBestBefore().isEqual(LocalDate.now().plusDays(1))) {
+            discount = price.multiply(BigDecimal.valueOf(0.1));
+        }else {
+            LocalTime now = LocalTime.now();
+            discount = (now.isAfter(LocalTime.of(17, 30)) && now.isBefore(LocalTime.of(18, 30)))
+                    ? price.multiply(BigDecimal.valueOf(0.2))
+                    : BigDecimal.ZERO;
+        }
+        price = price.subtract(discount);
+    }
+
+    public BigDecimal getDiscount() {
+        return discount;
+    }
+
+    public void setDiscount(BigDecimal discount) {
+        this.discount = discount;
     }
 }
