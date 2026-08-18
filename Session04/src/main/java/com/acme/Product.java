@@ -10,7 +10,7 @@ public class Product {
 
     private static int contador;
 
-    private static Period defaultExpiryPeriod = Period.ofDays(Product.MAX_EXPIRY_PERIOD);
+
 
 
     //variables de instancia
@@ -19,10 +19,10 @@ public class Product {
     private BigDecimal price;  // null
     private BigDecimal discount = BigDecimal.ZERO;
     private BigDecimal tax = BigDecimal.ZERO;
-    private LocalDate bestBefore = LocalDate.now().plus(defaultExpiryPeriod);
+
 
     public static void setDefaultExpiryPeriod(int days) {
-        Product.defaultExpiryPeriod = Period.ofDays(days);
+        //Product.defaultExpiryPeriod = Period.ofDays(days);
         //MAX_EXPIRY_PERIOD = 7;
         //System.out.println(name);
         //ERROR: System.out.println(Product.name);
@@ -105,13 +105,6 @@ public class Product {
         this.name = name;
     }
 
-    public LocalDate getBestBefore() {
-        return bestBefore;
-    }
-
-    public void setBestBefore(LocalDate bestBefore) {
-        this.bestBefore = bestBefore;
-    }
 
     public void play() {}
 

@@ -39,11 +39,34 @@ public class Main {
         //int i = 15L;
         //long l = 15;
 
-        Food x1 = new Food();
-        Object x2 = x1;
 
-        Product x3 = (Product) x2;
-        x3.hashCode();
+        //Rules of reference type casting
+
+        Food x1 = new Food();
+
+        Product x2 = new Drink();
+
+        x1.toString(); //toString es heredado de Object
+        x1.getName(); //getName es heredado de Product
+        x1.getBestBefore();
+
+        Product x3 = x1;
         x3.toString();
+        x3.getName();
+        //x3.getBestBefore();
+
+        Object x4 = x1;
+        x4.toString();
+        //x4.getName();
+        //x4.getBestBefore();
+
+        Product x5 = (Product) x4;
+        x5.toString();
+        x5.getName();
+        //x5.getBestBefore();
+
+        Drink x6 =  (Drink )x2;
+        //Drink x7 = (Drink) x3;
+
     }
 }
