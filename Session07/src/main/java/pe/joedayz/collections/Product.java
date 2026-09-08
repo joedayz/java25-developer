@@ -2,7 +2,7 @@ package pe.joedayz.collections;
 
 import java.util.Objects;
 
-public class Product {
+public class Product implements Comparable<Product>{
 
     private String name;
 
@@ -33,5 +33,10 @@ public class Product {
     @Override
     public int hashCode() {
         return Objects.hashCode(name);
+    }
+
+    @Override
+    public int compareTo(Product o) {
+        return this.name.compareTo(o.name);
     }
 }
