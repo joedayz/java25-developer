@@ -2,6 +2,7 @@ package pe.joedayz.streams;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.IntStream;
+import java.util.stream.Stream;
 
 
 public class Main {
@@ -39,6 +40,20 @@ public class Main {
                            .takeWhile(n -> n != 3)
                            .sum();
         System.out.println("Sum: " + sum);
+
+        Stream.of(new Food("Cake", 5.0), new Drink("Coke", 2.0)).forEach(p -> p.setPrice(1));       
         
+        
+        List<Product> foodAndDrink = new ArrayList<>();
+        foodAndDrink.add(new Food("Cake", 5.0));
+        foodAndDrink.add(new Drink("Coke", 10.0));  
+
+
+        Product[] array = { new Drink("Coke", 10.0), new Food("Cake", 5.0) };
+
+        double totalPrice = foodAndDrink.stream().mapToDouble(Product::getPrice).sum();
+
+        System.out.println("Total Price: " + totalPrice);
+
     }
 }

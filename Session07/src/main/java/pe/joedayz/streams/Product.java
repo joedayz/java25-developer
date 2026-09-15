@@ -26,4 +26,8 @@ public class Product {
 	public void setDiscount(double discount) {
 		this.discount = discount;
 	}
+
+	public void setPrice(double price) {
+		this.price = price;
+	}
 }
