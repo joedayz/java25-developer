@@ -11,4 +11,11 @@ public class Food extends Product{
         super(name, price);
     }
 
+    @Override
+    public String toString() {
+        return "Food{" +
+                "name='" + name + '\'' +
+                ", price=" + price +
+                '}';
+    }
 }

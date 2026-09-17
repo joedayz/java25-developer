@@ -16,6 +16,7 @@ public class Product {
         this.price = price;
     }
 
+
     public String getName() {
         return name;
     }
@@ -31,4 +32,6 @@ public class Product {
     public void setPrice(BigDecimal price) {
         this.price = price;
     }
+
+
 }
