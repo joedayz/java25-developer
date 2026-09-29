@@ -1,5 +1,6 @@
 package pe.joedayz.streams25;
 
+import java.util.List;
 import java.util.stream.Stream;
 
 /**
@@ -22,6 +23,40 @@ public class MapMultiMain {
 
         System.out.println("flatMap   = " + conFlatMap);
         System.out.println("mapMulti  = " + conMapMulti);
+
+
+        List<String> nombres = List.of(
+                "José",
+                "",
+                "Pedro",
+                "Ana"
+        );
+
+        var resultado = nombres.stream()
+                .flatMap(nombre -> {
+                    if (nombre.isEmpty()) {
+                        return Stream.empty();
+                    }
+
+                    return Stream.of(nombre, nombre.toUpperCase());
+                })
+                .toList();
+
+        System.out.println("resultado = " + resultado);
+
+        var resultadoMapMulti = nombres.stream()
+                .<String>mapMulti((nombre, downstream) -> {
+                    if (nombre.isEmpty()) {
+                        return;
+                    }
+
+                    downstream.accept(nombre);
+                    downstream.accept(nombre.toUpperCase());
+                })
+                .toList();
+
+
+        System.out.println("resultadoMapMulti = " + resultadoMapMulti);
 
         var palabras = Stream.of("java streams", "java 25", "   ")
                 .<String>mapMulti((linea, downstream) -> {

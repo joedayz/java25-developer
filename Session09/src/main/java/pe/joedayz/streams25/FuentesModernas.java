@@ -13,6 +13,7 @@ public class FuentesModernas {
     static void main() {
         System.out.println("--- Stream.of(null) vs ofNullable ---");
         String valor = null;
+
         try {
             System.out.println(Stream.of(valor).map(String::toUpperCase).toList());
         } catch (NullPointerException e) {
@@ -20,6 +21,7 @@ public class FuentesModernas {
         }
         System.out.println("ofNullable(null) = " + Stream.ofNullable(valor).map(String::toUpperCase).toList());
         System.out.println("ofNullable(\"java\") = " + Stream.ofNullable("java").map(String::toUpperCase).toList());
+
 
         System.out.println("--- iterate acotado (Java 9) ---");
         // El iterate de un solo argumento es infinito: hace falta limit.
