@@ -6,6 +6,7 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+        <module name="ejemplos-concurrencia" />
         <module name="Sesion03" />
         <module name="Sesion01" />
         <module name="Sesion2" />

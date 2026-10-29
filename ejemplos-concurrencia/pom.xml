@@ -14,4 +14,35 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
 
+    <build>
+        <plugins>
+            <!-- Los ejemplos viven en carpetas numeradas (01-hilos, 02-monitores...) en
+                 lugar de src/main/java, para conservar el orden de los temas al navegar
+                 el proyecto. build-helper-maven-plugin las registra como source roots. -->
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>build-helper-maven-plugin</artifactId>
+                <version>3.6.0</version>
+                <executions>
+                    <execution>
+                        <id>add-sources</id>
+                        <phase>generate-sources</phase>
+                        <goals>
+                            <goal>add-source</goal>
+                        </goals>
+                        <configuration>
+                            <sources>
+                                <source>01-hilos</source>
+                                <source>02-monitores</source>
+                                <source>03-executors</source>
+                                <source>04-virtuales</source>
+                                <source>05-seguridad</source>
+                            </sources>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
+
 </project>
