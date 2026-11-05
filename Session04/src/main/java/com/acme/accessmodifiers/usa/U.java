@@ -11,6 +11,8 @@ public class U {
 
         //System.out.println("m3: " + a.m3); // Error: m3 is not public in A; cannot be accessed from outside package
 
+        //System.out.println("m4: " + a.m4); // Error: m4 is not public in A; cannot be accessed from outside package
+
         //a.protectedMethod();
 
         a.publicMethod();

@@ -1,4 +1,4 @@
-package com.acme.accessmodifiers.dominicana;
+package com.acme.accessmodifiers.mexico;
 
 import com.acme.accessmodifiers.peru.A;
 
