@@ -5,7 +5,7 @@ import java.time.LocalDate;
 import java.time.LocalTime;
 import java.time.Period;
 
-public class Product {
+public class Product extends Object {
 
     public static final int MAX_EXPIRY_PERIOD = 5;
 

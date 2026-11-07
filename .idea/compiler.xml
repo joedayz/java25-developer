@@ -11,6 +11,7 @@
         <module name="Session04" />
         <module name="Sesion01" />
         <module name="Sesion2" />
+        <module name="Session05" />
       </profile>
     </annotationProcessing>
   </component>
