@@ -84,9 +84,12 @@ class Main{
         // Interface = clase que la implementa
         Consumable c = new Food();
         c.consume(0);
+        //c.sell(); // no compila porque Consumable no tiene el metodo sell
+
 
         Vendible v = new Food();
         v.sell();
+        //v.consume();
 
         Consumable d = new Drink();
         d.consume(0);
