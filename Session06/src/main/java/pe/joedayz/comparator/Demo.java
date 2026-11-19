@@ -65,6 +65,12 @@ public class Demo{
         Arrays.sort(productos, Comparator.comparing(Producto::getNombre)
                 .thenComparing(Producto::getPrecio));
         IO.println(Arrays.toString(productos));
+
+
+        Arrays.sort(productos, Comparator.comparing(Producto::getNombre)
+                .thenComparingInt(Producto::getPrecio)
+                .reversed());
+        IO.println(Arrays.toString(productos));
     }
 
 }
