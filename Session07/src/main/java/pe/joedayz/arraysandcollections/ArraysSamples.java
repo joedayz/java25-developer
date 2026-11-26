@@ -5,6 +5,12 @@ import java.util.Arrays;
 public class ArraysSamples {
 
     static void main() {
+
+
+        int[] precios = { 10, 20, 30, 40, 50 };
+
+        //var precios2  = { 2, 3, 4, 5}; ERROR
+
         // Ejemplo 1: llenar un array
 
         String[] values = new String[5];
@@ -40,6 +46,12 @@ public class ArraysSamples {
         int sum = 0;
         for (int i = 0; i < valuesNum.length; sum += i++);
         System.out.println("Sumatoria: " + sum);
+
+        var preciosAltos = new int[]{ 10, 20, 30, 40, 50 };
+        int n = 0;
+        for(var _ : preciosAltos) {
+            n++;
+        }
 
     }
 }

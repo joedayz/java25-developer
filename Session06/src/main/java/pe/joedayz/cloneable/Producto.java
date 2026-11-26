@@ -27,8 +27,21 @@ public class Producto implements Cloneable {
         p2.nums[0] = 9;
         IO.println(p1.nombre + " " + p1.nums[0]);
         IO.println(p2.nombre + " " + p2.nums[0]);
+
+
+
+        try {
+            new Caja().copia();
+        } catch (CloneNotSupportedException e) {
+            IO.println(e.getClass().getSimpleName());
+        }
     }
 
 
 }
 
+class Caja {
+    public Object copia() throws CloneNotSupportedException {
+        return super.clone();
+    }
+}
